@@ -2791,6 +2791,10 @@ minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.5:
   dependencies:
     minimist "^1.2.5"
 
+mobile-detect@^1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/mobile-detect/-/mobile-detect-1.4.4.tgz#686c74e92d3cc06b09a9b3594b7b981494b137f6"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -4041,6 +4045,10 @@ svelte-preprocess@^3.7.4:
     detect-indent "^6.0.0"
     strip-indent "^3.0.0"
 
+svelte-swipe@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/svelte-swipe/-/svelte-swipe-1.6.1.tgz#cdc5ba162565d979d833aaccd0b8eb7cfe3ad069"
+
 svelte@^3.0, svelte@^3.0.0:
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.21.0.tgz#e326591cb92267e90b4fb5b961d80d9763792551"
@@ -4096,6 +4104,10 @@ to-regex-range@^5.0.1:
   resolved "https://registry.yarnpkg.com/to-regex-range/-/to-regex-range-5.0.1.tgz#1648c44aae7c8d988a326018ed72f5b4dd0392e4"
   dependencies:
     is-number "^7.0.0"
+
+tocca@^2.0.9:
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/tocca/-/tocca-2.0.9.tgz#3a8b6c22e2e72a86c44d7f0864554cbc936eb965"
 
 tough-cookie@~2.5.0:
   version "2.5.0"
