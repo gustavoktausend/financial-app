@@ -1,9 +1,14 @@
 <script>
 	import TopAppBar,  { Row, Section, Title } from '@smui/top-app-bar';
 	import IconButton from '@smui/icon-button';
+	import { AppContent } from '@smui/drawer';
+	import Menu from './Menu.svelte';
 
 	export let segment = 'Financial App';
+	export let click;
+	export let open;
 </script>
+
 
 <TopAppBar variant="short">
 	<Row>
