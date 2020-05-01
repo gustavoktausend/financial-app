@@ -14,7 +14,11 @@
 	<Row>
 		<Section>
 			{#if segment !== 'login'}
-				<IconButton class="material-icons">menu</IconButton>
+				{#if !open}
+					<IconButton class="material-icons" on:click={() => click(true)}>menu</IconButton>
+				{:else}
+					<IconButton class="material-icons" on:click={() => click(false)}>close</IconButton>
+				{/if}
 			{/if}
 			<Title>{segment}</Title>
 		</Section>
