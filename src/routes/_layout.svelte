@@ -20,7 +20,7 @@
 
 <Nav {segment}/>
 
-<main use:Adjust>
+<main class="container">
 	<br/>
 	<br/>
 	<slot></slot>
