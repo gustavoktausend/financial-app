@@ -1,7 +1,7 @@
 <script>
     import Paper from '@smui/paper';
     import Textfield from '@smui/textfield';
-    import Button from '@smui/Button';
+    import Button from '@smui/button';
     import FormField from '@smui/form-field';
 
     const submit = () => alert('login');
@@ -19,6 +19,7 @@
         <h1>Acesso a Plataforma</h1>
     </div>
 </div>
+<br/>
 <div class="row text-center">
     <div class="col">
         <Paper>
@@ -37,12 +38,19 @@
                         </FormField>
                     </div>
                 </div>
-                <div class="row">
+                <br/>
+                <div class="row justify-content-between">
                     <div class="col">
                         <Button color="primary" variant="outlined">Login</Button>
                     </div>
                 </div>
             </form>
         </Paper>
+    </div>
+</div>
+<br/>
+<div class="row text-right">
+    <div class="col">
+        <Button on:click={() => alert('cadastro')} >Sign in</Button>
     </div>
 </div>

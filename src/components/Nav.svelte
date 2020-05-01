@@ -8,7 +8,9 @@
 <TopAppBar variant="short">
 	<Row>
 		<Section>
-			<IconButton class="material-icons">menu</IconButton>
+			{#if segment !== 'login'}
+				<IconButton class="material-icons">menu</IconButton>
+			{/if}
 			<Title>{segment}</Title>
 		</Section>
 		<Section align="end" toolbar>
