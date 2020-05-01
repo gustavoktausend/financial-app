@@ -9,21 +9,23 @@
 	export let open;
 </script>
 
-
-<TopAppBar variant="short">
-	<Row>
-		<Section>
-			{#if segment !== 'login'}
-				{#if !open}
-					<IconButton class="material-icons" on:click={() => click(true)}>menu</IconButton>
-				{:else}
-					<IconButton class="material-icons" on:click={() => click(false)}>close</IconButton>
+<Menu {open}/>
+<AppContent>
+	<TopAppBar class="app-content" variant="short">
+		<Row>
+			<Section>
+				{#if segment !== 'login'}
+					{#if !open}
+						<IconButton class="material-icons" on:click={() => click(true)}>menu</IconButton>
+					{:else}
+						<IconButton class="material-icons" on:click={() => click(false)}>close</IconButton>
+					{/if}
 				{/if}
-			{/if}
-			<Title>{segment}</Title>
-		</Section>
-		<Section align="end" toolbar>
-			<!-- <IconButton class="material-icons" aria-label="Download">file_download</IconButton> -->
-		</Section>
-	</Row>
-</TopAppBar>
+				<Title>{segment}</Title>
+			</Section>
+			<Section align="end" toolbar>
+				<!-- <IconButton class="material-icons" aria-label="Download">file_download</IconButton> -->
+			</Section>
+		</Row>
+	</TopAppBar>
+</AppContent>
