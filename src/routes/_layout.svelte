@@ -1,6 +1,9 @@
 <script>
 	import Nav from '../components/Nav.svelte';
+	import { ShortFixedAdjust } from '@smui/top-app-bar';
 
+
+	const Adjust = ShortFixedAdjust;
 	export let segment;
 </script>
 
@@ -17,6 +20,8 @@
 
 <Nav {segment}/>
 
-<main>
+<main use:Adjust>
+	<br/>
+	<br/>
 	<slot></slot>
 </main>
