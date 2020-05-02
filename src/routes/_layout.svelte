@@ -1,9 +1,9 @@
 <script>
 	import Nav from '../components/Nav.svelte';
 	import Menu from '../components/Menu.svelte';
-	import { ShortFixedAdjust } from '@smui/top-app-bar';
+	import { FixedAdjust } from '@smui/top-app-bar';
 
-	const Adjust = ShortFixedAdjust;
+	const Adjust = FixedAdjust;
 	let open = false;
 	export let segment;
 </script>
@@ -17,18 +17,11 @@
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
-	
-	* :global(.app-content) {
-		flex: auto;
-		overflow: auto;
-		position: relative;
-		flex-grow: 1;
-	}
 </style>
 
-<div class="drawer-container">
-	<Nav {segment} {open} click={(value) => open = value}/>
-	<main class="container-fluid">
-		<slot></slot>
-	</main>
-</div>
+<Nav {segment} {open} click={(value) => open = value}/>
+<br/>
+<br/>
+<main class="container-fluid" use:Adjust on:click={() => open = false}>
+	<slot></slot>
+</main>

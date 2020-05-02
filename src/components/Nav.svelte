@@ -9,9 +9,9 @@
 	export let open;
 </script>
 
-<Menu {open}/>
+<Menu {open} close={() => click(false)}/>
 <AppContent>
-	<TopAppBar class="app-content" variant="short">
+	<TopAppBar variant="fixed">
 		<Row>
 			<Section>
 				{#if segment !== 'login'}
@@ -24,7 +24,6 @@
 				<Title>{segment}</Title>
 			</Section>
 			<Section align="end" toolbar>
-				<!-- <IconButton class="material-icons" aria-label="Download">file_download</IconButton> -->
 			</Section>
 		</Row>
 	</TopAppBar>

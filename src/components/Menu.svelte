@@ -4,12 +4,13 @@
     import MenuItem from './MenuItem.svelte';
     let element;
     export let open;
+    export let close;
 </script>
 
-<Drawer variant="dismissible" bind:this={element} bind:open>
+<Drawer variant="dismissible" style="position:fixed;" bind:this={element} bind:open>
     <Content>
         <List>
-            <MenuItem href="/wallet" title="Carteira" icon="account_balance_wallet"/>
+            <MenuItem href="/wallet" title="Carteira" click={close} icon="account_balance_wallet"/>
         </List>
     </Content>
 </Drawer>
