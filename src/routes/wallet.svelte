@@ -4,7 +4,7 @@
     import { Swipe, SwipeItem } from "svelte-swipe"; 
     import MobileDetect from "mobile-detect";
     import { stores } from "@sapper/app";
-    import Button from "@smui/Button";
+    import Button from "@smui/button";
 
     const { session } = stores();
 
