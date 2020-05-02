@@ -24,6 +24,10 @@
     }
 </style>
 
+<svelte:head>
+    <title>Carteira</title>
+</svelte:head>
+
 {#if md.mobile() !== null}
     <div style="height: 100vh">
         <Swipe {showIndicators} {autoplay} {delay} {transitionDuration} {defaultIndex}>
@@ -32,7 +36,7 @@
                 <br/>
                 <div class="row">
                     <div class="col">
-                        <Button color="primary" variant="outlined" on:click={()=> window.location.assign('\/')}>Depositar</Button>
+                        <Button color="primary" variant="outlined" on:click={()=> window.location.assign('\/contribute')}>Depositar</Button>
                         <br/>
                         <br/>
                         <Button color="primary" variant="outlined" on:click={()=> window.location.assign('\/journeys')}>Jornadas</Button>
