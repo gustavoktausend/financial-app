@@ -28,9 +28,7 @@
 
 <div class="drawer-container">
 	<Nav {segment} {open} click={(value) => open = value}/>
-	<main use:Adjust>
-		<br/>
-		<br/>
+	<main class="container-fluid">
 		<slot></slot>
 	</main>
 </div>
