@@ -1,5 +1,5 @@
 <script>
-    import JourneyItem from '../components/JourneyItem.svelte';
+    import JourneyItem from '../../components/JourneyItem.svelte';
 
     const getAllJornadas = () => alert('getAllJornadas');
 
