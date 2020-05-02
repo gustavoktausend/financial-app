@@ -3,14 +3,15 @@
     import List, {Item, Text, Graphic, Separator, Subheader} from '@smui/list';
     import MenuItem from './MenuItem.svelte';
     let element;
-    let clicked;
     export let open;
+    export let close;
 </script>
 
-<Drawer variant="dismissible" bind:this={element} bind:open>
+<Drawer variant="dismissible" style="position:fixed;" bind:this={element} bind:open>
     <Content>
         <List>
-            <MenuItem href="javascript:void(0)" click={() => clicked = 'Gray Kittens'} title="Gray Kittens"/>
+            <MenuItem href="/wallet" title="Carteira" click={close} icon="account_balance_wallet"/>
+            <MenuItem href="/journeys" title="Jornadas" click={close} icon="account_balance_wallet"/>
         </List>
     </Content>
 </Drawer>
