@@ -11,6 +11,7 @@
     <Content>
         <List>
             <MenuItem href="/wallet" title="Carteira" click={close} icon="account_balance_wallet"/>
+            <MenuItem href="/journeys" title="Jornadas" click={close} icon="account_balance_wallet"/>
         </List>
     </Content>
 </Drawer>
