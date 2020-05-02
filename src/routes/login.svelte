@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col">
                         <FormField>
-                            <Textfield class="shaped-outlined" label="Password" bind:value={password} type="password" />
+                            <Textfield class="shaped-outlined" label="Senha" bind:value={password} type="password" />
                         </FormField>
                     </div>
                 </div>
@@ -51,6 +51,6 @@
 <br/>
 <div class="row text-right">
     <div class="col">
-        <Button on:click={() => alert('cadastro')} >Sign in</Button>
+        <Button on:click={() => alert('cadastro')} >Cadastre-se</Button>
     </div>
 </div>
