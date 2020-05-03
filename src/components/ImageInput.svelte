@@ -16,7 +16,7 @@
         font-size: 1.25em;
         font-weight: 700;
         color: white;
-        background-color: #6200ee;
+        background-color: rgb(0,179,38);
         display: inline-block;
         width: 56px;
         height: 56px;
@@ -24,11 +24,11 @@
 
     .file-input:focus + label,
     .file-input + label:hover {
-        background-color: #b7a6ce;
+        background-color: rgb(97, 173, 113);
     }
 
     .file-input:focus + label {
-        outline: 1px dotted #6200ee;
+        outline: 1px dotted rgb(0,179,38);
         outline: -webkit-focus-ring-color auto 5px;
     }
 

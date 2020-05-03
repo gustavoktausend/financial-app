@@ -7,7 +7,8 @@
 
     let value = 20000;
     let interval = 48;
-    let firstValue = 1.456;
+
+    const FORMATTER = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })
 
 </script>
 
@@ -61,7 +62,7 @@
     <br/>
     <div class="row">
         <div class="col">
-            <p>O Valor sugerido para o primeiro aporte é de <b style="color: #2cc642">R${firstValue}</b>, Tudo bem?</p>
+            <p>O Valor sugerido para o primeiro aporte é de <b style="color: #2cc642">R${FORMATTER.format(value/interval)}</b>, Tudo bem?</p>
         </div>
     </div>
     <div class="row text-center">
