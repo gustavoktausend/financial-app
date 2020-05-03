@@ -20,7 +20,7 @@
 
 <div class="row">
     <div class="col">
-       <h4>Oi =) Vamos conhecer vc</h4>
+       <h4 class="mdc-typography--headline4 text-center">Oi =) Vamos conhecer vc</h4>
     </div>
 </div>
 <br/>
@@ -80,6 +80,6 @@
 <br/>
 <div class="row text-left">
     <div class="col">
-        <Button on:click={() => alert('voltar')}>Voltar</Button>
+        <Button on:click={() => window.history.back()}>Voltar</Button>
     </div>
 </div>

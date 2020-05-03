@@ -51,6 +51,6 @@
 <br/>
 <div class="row text-right">
     <div class="col">
-        <Button on:click={() => alert('cadastro')} >Cadastre-se</Button>
+        <Button on:click={() =>  window.location.assign('\/signup')} >Cadastre-se</Button>
     </div>
 </div>

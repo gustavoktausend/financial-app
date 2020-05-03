@@ -1,6 +1,7 @@
 <script>
     import ImageInput from '../components/ImageInput.svelte';
-    import Paper, { Title, Subtitle, Content } from '@smui/paper'; 
+    import Back from '../components/Back.svelte';
+    import Paper, { Title, Content } from '@smui/paper'; 
     import MobileDetect from "mobile-detect";
     import { stores } from "@sapper/app";
 
@@ -48,6 +49,8 @@
 <svelte:head>
     <title>Aporte</title>
 </svelte:head>
+
+<Back/>
 
 <Paper>
     <Title>Realize seus aportes, coloque seu dinheiro na Wall-it</Title>

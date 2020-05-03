@@ -19,6 +19,7 @@
 <script>
     import Paper from '@smui/paper';
     import Button from '@smui/button';
+    import Back from '../../components/Back.svelte';
 
     export let journey;
 </script>
@@ -26,6 +27,8 @@
 <svelte:head>
     <title>Jornada {journey.name}</title>
 </svelte:head>
+
+<Back/>
 
 <Paper>
     <div class="row text-center">
