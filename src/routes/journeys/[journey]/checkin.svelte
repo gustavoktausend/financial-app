@@ -66,7 +66,7 @@
     </div>
     <div class="row text-center">
         <div class="col">
-            <Button color="primary" variant="unelevated"><a rel="prefetch" href="/journeys/carro-novo/checkin">INICIAR DESAFIOS</a></Button>
+            <Button color="primary" variant="unelevated"><a rel="prefetch" href="/journeys/carro-novo/challenges/1">INICIAR DESAFIOS</a></Button>
         </div>
     </div>
 </Paper>

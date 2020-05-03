@@ -29,7 +29,7 @@
     <div class="row text-center">
         <div class="col">
             <Button color="primary">
-                <a rel="prefetch" href="/journeys/carro-novo">Detalhes</a>
+                <a rel="prefetch" href="/journeys/carro-novo/about">Detalhes</a>
             </Button>
         </div>
     </div>
