@@ -21,7 +21,7 @@
 						<IconButton class="material-icons" on:click={() => click(false)}>close</IconButton>
 					{/if}
 				{/if}
-				<Title>{segment}</Title>
+				<Title style="color: white;">{segment}</Title>
 			</Section>
 			<Section align="end" toolbar>
 			</Section>

@@ -1,5 +1,10 @@
 @import "bootstrap/scss/bootstrap.scss";
 
+$mdc-theme-primary: rgb(0,179,38);
+$mdc-theme-on-primary: white;
+$mdc-theme-secondary: rgb(16, 110, 167);
+$mdc-theme-on-secondary: white;
+
 body {
 	margin: 0;
 	font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
