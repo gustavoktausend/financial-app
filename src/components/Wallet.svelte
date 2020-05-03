@@ -1,11 +1,11 @@
 <script>
-    import Card, { Content, PrimaryAction, Media, MediaContent, Actions, ActionButtons, ActionIcons} from '@smui/card';
+    import Card, { Content } from '@smui/card';
     import Chart from 'svelte-frappe-charts';
     import Loading from './Loading.svelte';
 
     const same = async () => {        
-        const delay = ms => new Promise(res => setTimeout(res, ms))
-        await delay(3000);
+        const delay = () => new Promise(res => setTimeout(res, 3000))
+        await delay();
         return {
             labels: ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'],
             datasets: [
