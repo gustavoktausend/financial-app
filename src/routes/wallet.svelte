@@ -2,7 +2,6 @@
     import Wallet from "../components/Wallet.svelte";
     import Swipeable from "../components/Swipeable.svelte";
     import BankStatement from "../components/BankStatement.svelte";
-    // import { Swipe, SwipeItem } from "svelte-swipe";
     import MobileDetect from "mobile-detect";
     import { stores } from "@sapper/app";
     import Button from "@smui/button";
@@ -92,7 +91,7 @@
                         <Button color="primary" variant="outlined" on:click={()=> window.location.assign('\/journeys')}>Jornadas</Button>
                     </div>
                     <div class="col">
-                        <Button color="secondary" variant="unelevated" on:click={()=> window.location.assign('\/')} style="height:100%;">
+                        <Button color="secondary" variant="unelevated" on:click={()=> window.location.assign('\/dream')} style="height:100%;">
                             Realizar<br/>
                             sonho
                         </Button>

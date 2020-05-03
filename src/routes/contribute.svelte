@@ -92,16 +92,3 @@
         </div>
     </Content>
 </Paper>
-
-
-<!--
-    Tela Depósito
-
-Título: Realize seus aportes, coloque seu dinheiro na Wall-it.
-
-
-
-Comprovante do aporte. (Botão - Galeria de fotos)
-
-Jornadas (Botão - Tela Jornadas)
--->
