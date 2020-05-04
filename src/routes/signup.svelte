@@ -3,11 +3,26 @@
     import Textfield from '@smui/textfield';
     import Button from '@smui/button';
     import FormField from '@smui/form-field';
+    import { goto } from "@sapper/app";
+    import { signup } from '../utils/request';
 
-    const submit = () => alert('cadastrar');
+    const submit = async () => {
+        try {
+            await signup({
+                nickName,
+                fullName,
+                email,
+                password,
+                cpf
+            });
+            goto('/login');
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
-    export let nick = '';
-    export let name = '';
+    export let nickName = '';
+    export let fullName = '';
     export let email = '';
     export let password = '';
     export let cpf = '';
@@ -31,7 +46,7 @@
                 <div class="row">
                     <div class="col">
                         <FormField>
-                            <Textfield class="shaped-outlined" label="Nickname" bind:value={nick} type="text"/>
+                            <Textfield class="shaped-outlined" label="Nickname" bind:value={nickName} type="text"/>
                         </FormField>
                     </div>
                 </div>
@@ -39,7 +54,7 @@
                 <div class="row">
                     <div class="col">
                         <FormField>
-                            <Textfield class="shaped-outlined" label="Nome Completo" bind:value={name} type="text"/>
+                            <Textfield class="shaped-outlined" label="Nome Completo" bind:value={fullName} type="text"/>
                         </FormField>
                     </div>
                 </div>

@@ -4,22 +4,15 @@
     import Button from '@smui/button';
     import FormField from '@smui/form-field';
     import { goto, stores } from "@sapper/app";
+    import { login } from '../utils/request';
 
     const { session } = stores();
 
     $:if($session.token) goto('/wallet');
 
     const submit = async () => {
-        const data = { email, password };
         try {
-            const res = await fetch(`${process.env.SAPPER_APP_API_URL}/v1/signin`, {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-            const { token } = await res.json();
+            const token = await login(email, password);
             const { userAgent } = $session;
             session.set({ token, userAgent });
         } catch (error) {
