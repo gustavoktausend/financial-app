@@ -1,7 +1,8 @@
 <script>
 	import Loading from '../components/Loading.svelte';
+    import { goto } from "@sapper/app";
 	if(typeof window !== 'undefined'){
-		window.location.replace('/login')
+		goto(`/login`, { replaceState: true });
 	}
 </script>
 

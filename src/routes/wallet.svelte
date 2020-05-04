@@ -3,7 +3,7 @@
     import Swipeable from "../components/Swipeable.svelte";
     import BankStatement from "../components/BankStatement.svelte";
     import MobileDetect from "mobile-detect";
-    import { stores } from "@sapper/app";
+    import { goto, stores } from "@sapper/app";
     import Button from "@smui/button";
 
     const { session } = stores();
@@ -85,13 +85,13 @@
                 <br/>
                 <div class="row actions">
                     <div class="col">
-                        <Button color="primary" variant="outlined" on:click={()=> window.location.assign('\/contribute')}>Depositar</Button>
+                        <Button color="primary" variant="outlined" on:click={()=> goto('\/contribute')}>Depositar</Button>
                         <br/>
                         <br/>
-                        <Button color="primary" variant="outlined" on:click={()=> window.location.assign('\/journeys')}>Jornadas</Button>
+                        <Button color="primary" variant="outlined" on:click={()=> goto('\/journeys')}>Jornadas</Button>
                     </div>
                     <div class="col">
-                        <Button color="secondary" variant="unelevated" on:click={()=> window.location.assign('\/dream')} style="height:100%;">
+                        <Button color="secondary" variant="unelevated" on:click={()=> goto('\/dream')} style="height:100%;">
                             Realizar<br/>
                             sonho
                         </Button>

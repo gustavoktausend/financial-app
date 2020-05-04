@@ -3,8 +3,22 @@
     import Textfield from '@smui/textfield';
     import Button from '@smui/button';
     import FormField from '@smui/form-field';
+    import { goto, stores } from "@sapper/app";
+    import { login } from '../utils/request';
 
-    const submit = () => alert('login');
+    const { session } = stores();
+
+    $:if($session.token) goto('/wallet');
+
+    const submit = async () => {
+        try {
+            const token = await login(email, password);
+            const { userAgent } = $session;
+            session.set({ token, userAgent });
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     export let email = '';
     export let password = '';
@@ -51,6 +65,6 @@
 <br/>
 <div class="row text-right">
     <div class="col">
-        <Button on:click={() =>  window.location.assign('\/signup')} >Cadastre-se</Button>
+        <Button on:click={() =>  goto('\/signup')} >Cadastre-se</Button>
     </div>
 </div>
