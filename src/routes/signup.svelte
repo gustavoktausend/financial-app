@@ -3,8 +3,10 @@
     import Textfield from '@smui/textfield';
     import Button from '@smui/button';
     import FormField from '@smui/form-field';
-    import { goto } from "@sapper/app";
+    import { goto, stores } from "@sapper/app";
     import { signup } from '../utils/request';
+
+    const { session } = stores();
 
     const submit = async () => {
         try {
@@ -15,6 +17,7 @@
                 password,
                 cpf
             });
+            session.update(session => ({ ...session, feedbackMsg: 'Cadastro realizado com sucesso' }));
             goto('/login');
         } catch (error) {
             console.log(error);
