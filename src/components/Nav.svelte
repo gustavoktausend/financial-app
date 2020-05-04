@@ -3,6 +3,8 @@
 	import IconButton from '@smui/icon-button';
 	import { AppContent } from '@smui/drawer';
 	import Menu from './Menu.svelte';
+    import { goto, stores } from '@sapper/app';
+    const { session } = stores();
 
 	export let segment = 'Financial App';
 	export let click;
@@ -14,7 +16,7 @@
 	<TopAppBar variant="fixed">
 		<Row>
 			<Section>
-				{#if segment !== 'login'}
+				{#if !!$session.token}
 					{#if !open}
 						<IconButton class="material-icons" on:click={() => click(true)}>menu</IconButton>
 					{:else}
