@@ -2,6 +2,7 @@
     import Back from '../components/Back.svelte';
     import Paper, { Title, Content } from '@smui/paper';
     import Button from "@smui/button";
+    import { goto } from "@sapper/app";
 
     const draw = () => {};
 </script>
@@ -33,7 +34,7 @@
 
         <div class="row">
             <div class="col">
-                <Button color="primary" variant="outlined" on:click={()=> window.location.assign('\/journeys')}>Jornadas</Button>
+                <Button color="primary" variant="outlined" on:click={()=> goto('\/journeys')}>Jornadas</Button>
             </div>
             <div class="col">
                 <Button color="secondary" variant="unelevated" on:click={draw} style="height:100%;">

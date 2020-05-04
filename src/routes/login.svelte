@@ -3,8 +3,29 @@
     import Textfield from '@smui/textfield';
     import Button from '@smui/button';
     import FormField from '@smui/form-field';
+    import { goto, stores } from "@sapper/app";
 
-    const submit = () => alert('login');
+    const { session } = stores();
+
+    $:if($session.token) goto('/wallet');
+
+    const submit = async () => {
+        const data = { email, password };
+        try {
+            const res = await fetch(`${process.env.SAPPER_APP_API_URL}/v1/signin`, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const { token } = await res.json();
+            const { userAgent } = $session;
+            session.set({ token, userAgent });
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     export let email = '';
     export let password = '';
@@ -51,6 +72,6 @@
 <br/>
 <div class="row text-right">
     <div class="col">
-        <Button on:click={() =>  window.location.assign('\/signup')} >Cadastre-se</Button>
+        <Button on:click={() =>  goto('\/signup')} >Cadastre-se</Button>
     </div>
 </div>
