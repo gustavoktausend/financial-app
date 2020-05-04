@@ -62,3 +62,18 @@ export const journeys = async (token) => {
     }
     return json;
 }
+
+export const journey = async (id, token) => {
+    const res = await fetch(`${process.env.SAPPER_APP_API_URL}/v1/journey/${id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    });
+    const json = await res.json();
+    if(!res.ok) {
+        throw new Error(json.error);
+    }
+    return json;
+}

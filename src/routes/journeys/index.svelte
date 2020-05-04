@@ -35,7 +35,7 @@
     <Card>
         <Content>
             <p class="text-center" style="font-size: 1.3rem;">
-                <strong>Não foi possível Jornadas.</strong>
+                <strong>Não foi possível recuperar Jornadas.</strong>
             </p>
             <p class="text-center">
                 <Graphic class="material-icons icon">mood_bad</Graphic>

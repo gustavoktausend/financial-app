@@ -1,55 +1,66 @@
 <script context="module">
-    export async function preload({ params, query }) {
-        // parametro `journey` é disponivel porque o arquivo se chama about.svelte
-        if (params.journey === 'carro-novo') {
-            return {
-                journey: {
-                    name:'Carro Novo',
-                    description: 'Olá {Nome do Usuário}, seja bem-vindo a jornada que vai realizar o seu sonho de ter o seu próprio carro.' +
-                            'Se você chegou até aqui, isso significa que você realmente quer realizar aprender sobre finanças pessoais de forma prática.' +
-                            'Será preciso muito disciplina e organização, não será um caminho fácil, mas estamos aqui para te ajudar =) '
-                }
-            };
-        } else {
-            this.error(404, 'Not Found');
-        }
-
-    }
+    export const preload = async ({ params, query }) => ({ journey: params.journey });
 </script>
 <script>
-    import Paper from '@smui/paper';
+    import Paper, { Title, Subtitle, Content } from '@smui/paper';
+    import { Graphic } from '@smui/list';
     import Button from '@smui/button';
     import Back from '../../../components/Back.svelte';
+    import Loading from '../../../components/Loading.svelte';
+    import { stores } from '@sapper/app';
+    import { journey as getJourney } from '../../../utils/request';
 
     export let journey;
+
+    const { session } = stores();
+    let promise = getJourney(journey, $session.token);
 </script>
 
+<style>
+    :global(.icon) {
+        width: 75px;
+        height: 75px;
+        font-size: 75px;
+        margin-right: 0;
+    }
+</style>
+
 <svelte:head>
-    <title>Jornada {journey.name}</title>
+    <title>Jornada</title>
 </svelte:head>
-
 <Back/>
-
 <Paper>
-    <div class="row text-center">
-        <div class="col">
-            <h3>{journey.name}</h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <p>
-                {journey.description}
+    {#await promise}
+        <Loading/>
+    {:then value}
+        <Title>{value.title}</Title>
+        <Subtitle>{value.subTitle}</Subtitle>
+        <Content>
+            <div class="row">
+                <div class="col">
+                    <p>
+                        {value.description}
+                    </p>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col">
+                    <Button color="primary" variant="unelevated">
+                        <a rel="prefetch" href="/journeys/{value.id}/checkin">Começar</a>
+                    </Button>
+                </div>
+            </div>
+        </Content>
+    {:catch e}
+        <Content>
+            <p class="text-center" style="font-size: 1.3rem;">
+                <strong>Não foi possível Recuperar Informações.</strong>
             </p>
-        </div>
-    </div>
-    <div class="row text-center">
-        <div class="col">
-            <Button color="primary" variant="unelevated">
-                <a rel="prefetch" href="/journeys/carro-novo/checkin">Começar</a>
-            </Button>
-        </div>
-    </div>
+            <p class="text-center">
+                <Graphic class="material-icons icon">mood_bad</Graphic>
+            </p>
+        </Content>
+    {/await}
 </Paper>
 
 

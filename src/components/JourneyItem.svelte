@@ -1,6 +1,7 @@
 <script>
     import Paper from '@smui/paper';
     import Button from '@smui/button';
+    import { goto } from '@sapper/app';
     export let id;
     export let title;
     export let subTitle;
@@ -29,8 +30,8 @@
     </div>
     <div class="row text-center">
         <div class="col">
-            <Button color="primary">
-                <a rel="prefetch" href="/journeys/{id}/about">Detalhes</a>
+            <Button color="primary" on:clik={() => goto(`/journeys/${id}/about`)}>
+                Detalhes
             </Button>
         </div>
     </div>
