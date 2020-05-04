@@ -1,3 +1,5 @@
+import { stores } from "@sapper/app";
+
 export const login = async (email, password) => {
     const res = await fetch(`${process.env.SAPPER_APP_API_URL}/v1/signin`, {
         method: 'POST',
@@ -22,6 +24,21 @@ export const signup = async data => {
         body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json'
+        }
+    });
+    const json = await res.json();
+    if(!res.ok) {
+        throw new Error(json.error);
+    }
+    return json;
+}
+
+export const wallet = async (id, token) => {
+    const res = await fetch(`${process.env.SAPPER_APP_API_URL}/v1/user/${id}/wallet`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
         }
     });
     const json = await res.json();

@@ -5,6 +5,7 @@
     import FormField from '@smui/form-field';
     import { goto, stores } from "@sapper/app";
     import { login } from '../utils/request';
+	import jwtDecode from 'jwt-decode';
 
     const { session } = stores();
 
@@ -14,7 +15,8 @@
         try {
             const token = await login(email, password);
             const { userAgent } = $session;
-            session.set({ token, userAgent });
+            const user = JSON.parse(jwtDecode(token).sub);
+            session.set({ token, userAgent, user });
         } catch (error) {
             console.log(error);
         }
