@@ -8,7 +8,7 @@
     export let open;
     export let close;
     const logout = () => {
-        session.update(session => Object.assign({}, session, { token: null }));
+        session.update(session => ({...session, token: null }));
         goto('/');
         close();
     }
