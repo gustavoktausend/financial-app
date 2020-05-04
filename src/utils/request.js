@@ -9,11 +9,14 @@ export const login = async (email, password) => {
             'Content-Type': 'application/json'
         }
     });
-    const { token } = await res.json();
-    return token;
+    const data = await res.json();
+    if(!res.ok) {
+        throw new Error(data.error);
+    }
+    return data.token;
 };
 
-export const signup = async (data) => {
+export const signup = async data => {
     const res = await fetch(`${process.env.SAPPER_APP_API_URL}/v1/signup`, {
         method: 'POST',
         body: JSON.stringify(data),
@@ -21,5 +24,9 @@ export const signup = async (data) => {
             'Content-Type': 'application/json'
         }
     });
-    return;
+    const json = await res.json();
+    if(!res.ok) {
+        throw new Error(json.error);
+    }
+    return json;
 }
