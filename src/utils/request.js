@@ -1,5 +1,9 @@
 import { stores } from "@sapper/app";
 
+import axios from 'axios';
+
+axios.defaults.baseURL = process.env.SAPPER_APP_API_URL;
+
 export const login = async (email, password) => {
     const res = await fetch(`${process.env.SAPPER_APP_API_URL}/v1/signin`, {
         method: 'POST',
@@ -11,11 +15,12 @@ export const login = async (email, password) => {
             'Content-Type': 'application/json'
         }
     });
-    const data = await res.json();
+    const { token, error } = await res.json();
     if(!res.ok) {
-        throw new Error(data.error);
+        throw new Error(error);
     }
-    return data.token;
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    return token;
 };
 
 export const signup = async data => {
@@ -49,18 +54,30 @@ export const wallet = async (id, token) => {
 }
 
 export const journeys = async (token) => {
-    const res = await fetch(`${process.env.SAPPER_APP_API_URL}/v1/journey`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+    // if (process.browser){
+        console.log(token);
+        try {
+            const a = await axios.get('/v1/journey');
+            // console.log(a);
+            return a;
+        } catch (error) {
+            console.log(error);
+
+            throw new Error(error)
         }
-    });
-    const json = await res.json();
-    if(!res.ok) {
-        throw new Error(json.error);
-    }
-    return json;
+    // }
+    // const res = await fetch(`${process.env.SAPPER_APP_API_URL}/v1/journey`, {
+    //     method: 'GET',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         'Authorization': `Bearer ${token}`
+    //     }
+    // });
+    // const json = await res.json();
+    // if(!res.ok) {
+    //     throw new Error(json.error);
+    // }
+    // return json;
 }
 
 export const journey = async (id, token) => {

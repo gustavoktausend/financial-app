@@ -1,5 +1,8 @@
 <script context="module">
-    export const preload = async ({ params, query }) => ({ journey: params.journey });
+    export const preload = async ({ params, query }, session) => {
+        console.log(arguments)
+        return ({ journey: params.journey });
+    }
 </script>
 <script>
     import Paper, { Title, Subtitle, Content } from '@smui/paper';
